@@ -1,15 +1,15 @@
 require 'sinatra/base'
-require './lib/analysis.rb'
+require './lib/code_analyzer.rb'
 
 class Recode < Sinatra::Base
 
   enable :sessions
 
-  get '/index' do
+  get '/' do
     erb(:index)
   end
 
-  post '/index' do
+  post '/' do
     redirect to('/repos')
   end
 
