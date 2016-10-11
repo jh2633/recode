@@ -4,10 +4,8 @@ class Code_analyzer
     @string = string
   end
 
-def meth_less_than_five
-  @string.gsub(/\n+/,"*-*").split(/def|end/).map { |x| x.scan(/\*-\*/).count-1}
-end
-
-
+  def meth_less_than_five
+    @string.scan(/def.+?end/m).map{|x| (x.scan(/\n+/).length-1)}
+  end
 
 end

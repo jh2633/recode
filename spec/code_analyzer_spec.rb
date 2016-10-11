@@ -10,6 +10,6 @@ describe 'code has less than 5 lines' do
   end
 
   it 'returns % of methods less than 5 lines' do
-    expect(@code_analyzer.meth_less_than_five).to eq(0)
+    expect(@code_analyzer.meth_less_than_five).to eq([3, 4, 4, 3, 3, 1, 1, 1, 1, 1, 1])
   end
 end
