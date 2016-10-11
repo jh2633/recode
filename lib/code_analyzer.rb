@@ -13,7 +13,8 @@ class Code_analyzer
       methods_less_than_five: meth_less_than_five,
       class_less_than_hundred: class_less_than_hundred,
       public_vs_private: public_vs_private,
-      lazy_poltergeist: lazy_poltergeist
+      lazy_poltergeist: lazy_poltergeist,
+      inheritence: inheritence
       }
   end
 
@@ -61,6 +62,11 @@ private
       number_public = (classname.new.public_methods - Object.new.public_methods).length
       [classname, number_public + number_private]}.select{|classname, x| x<2}.flatten
       return {:class=>lazy[0], :number_methods=>lazy[1], :number_attributes=>lazy[0].instance_variables.length}
+  end
+
+  def inheritence
+    match_data = @string.match(/class (.+?) < (.+?)\n/)
+    return {parent: match_data[2], child: match_data[1]}
   end
 
 end

@@ -13,11 +13,11 @@ describe '#analyse' do
   end
 
   it 'returns name of classes under analysis' do
-    expect(@code_analyzer.analyse[:classes]).to eq([Airport, Lazy])
+    expect(@code_analyzer.analyse[:classes]).to eq([Airport, Weather, Velodrome])
   end
 
   it 'returns length of classes' do
-    expect(@code_analyzer.analyse[:class_less_than_hundred]).to eq({:average=>56.0, :percentage=>100.0, :absolute=>0})
+    expect(@code_analyzer.analyse[:class_less_than_hundred]).to eq({:average=>58.0, :percentage=>100.0, :absolute=>0})
   end
 
   it 'returns percentage of public vs private methods' do
@@ -25,7 +25,11 @@ describe '#analyse' do
   end
 
   it 'identifies lazy classes' do
-    expect(@code_analyzer.analyse[:lazy_poltergeist]).to eq({:class=>Lazy, :number_methods=>1, :number_attributes=>0})
+    expect(@code_analyzer.analyse[:lazy_poltergeist]).to eq({:class=>Weather, :number_methods=>1, :number_attributes=>0})
+  end
+
+  it 'identifies inherited classes' do
+    expect(@code_analyzer.analyse[:inheritence]).to eq({:parent=>"Airport", :child=>"Velodrome"})
   end
 
 end
