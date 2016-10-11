@@ -12,7 +12,9 @@ class Code_analyzer
       classes: @classes,
       methods_less_than_five: meth_less_than_five,
       class_less_than_hundred: class_less_than_hundred,
-      public_vs_private: public_vs_private
+      public_vs_private: public_vs_private,
+      lazy_poltergeist: lazy_poltergeist,
+      inheritence: inheritence
       }
   end
 
@@ -33,7 +35,7 @@ private
     @classes.map{|classname|
       number_private = (classname.new.private_methods - Object.new.private_methods).length
       number_public = (classname.new.public_methods - Object.new.public_methods).length
-      percentage = number_public.to_f / number_private
+      percentage = (number_public.to_f / number_private)*100
       return {number_public: number_public, number_private:number_private, percentage: percentage.round(2)}
       }
   end
@@ -41,7 +43,7 @@ private
   def meth_less_than_five
     array = @string.scan(/def.+?end/m).map{|x| (x.scan(/\n+/).length-1)}
     average = array.inject(:+) / array.length
-    percentage = ((array.select{|x| x > 5} || []).length.to_f / array.length) * 100
+    percentage = ((array.select{|x| x < 5} || []).length.to_f / array.length) * 100
     absolute = array.select{|x| x > 5}.length
     return {average: average.round(2), percentage: percentage.round(2), absolute: absolute}
   end
@@ -49,9 +51,22 @@ private
   def class_less_than_hundred
     array = @string.scan(/class.+$/m).map{|x| (x.scan(/\n+/).length-1)}
     average = array.inject(:+) / array.length
-    percentage = ((array.select{|x| x > 100} || []).length.to_f / array.length) * 100
+    percentage = ((array.select{|x| x < 100} || []).length.to_f / array.length) * 100
     absolute = array.select{|x| x > 100}.length
     return {average: average.round(2), percentage: percentage.round(2), absolute: absolute}
+  end
+
+  def lazy_poltergeist
+    lazy = @classes.map{|classname|
+      number_private = (classname.new.private_methods - Object.new.private_methods).length
+      number_public = (classname.new.public_methods - Object.new.public_methods).length
+      [classname, number_public + number_private]}.select{|classname, x| x<2}.flatten
+      return {:class=>lazy[0], :number_methods=>lazy[1], :number_attributes=>lazy[0].instance_variables.length}
+  end
+
+  def inheritence
+    match_data = @string.match(/class (.+?) < (.+?)\n/)
+    return {parent: match_data[2], child: match_data[1]}
   end
 
 end

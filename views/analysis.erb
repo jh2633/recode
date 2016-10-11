@@ -1,1 +1,42 @@
-<%= @analysis %>
+    <div class="row">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8"><h1>Key Statistics</h1></div>
+        <div class="col-md-2"></div>
+      </div>
+      <div class="col-md-2"></div>
+      <div class="col-md-2">
+        <div class="c100 p<%= @analysis[:methods_less_than_five][:percentage].ceil %>">
+        <span><%= @analysis[:methods_less_than_five][:percentage] %>%</span>
+        <div class="slice">
+          <div class="bar"></div>
+          <div class="fill"></div>
+        </div>
+      </div>Percentage of Classes with more than five lines.</div>
+      <div class="col-md-1"></div>
+      <div class="col-md-2">  <div class="c100 p<%= @analysis[:class_less_than_hundred][:percentage].ceil %>">
+          <span><%= @analysis[:class_less_than_hundred][:percentage] %>%</span>
+          <div class="slice">
+            <div class="bar"></div>
+            <div class="fill"></div>
+          </div>
+        </div>Percentage of Classes less than One Hundred Lines</div>
+        <div class="col-md-1"></div>
+      <div class="col-md-2">  <div class="c100 p<%= @analysis[:public_vs_private][:percentage].ceil %>">
+          <span><%= @analysis[:public_vs_private][:percentage] %>%</span>
+          <div class="slice">
+            <div class="bar"></div>
+            <div class="fill"></div>
+          </div>
+        </div>Percentage of Public vs Private Methods</div>
+      <div class="col-md-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <h1>Design Analysis</h1>
+        <p><strong>Lazy Poltergeist -</strong> The class <em><%= @analysis[:lazy_poltergeist][:class] %></em> has been identified as a lazy poltergeist. It has <%= @analysis[:lazy_poltergeist][:number_methods] %> methods and <%= @analysis[:lazy_poltergeist][:number_attributes] %> attributes. Is it needed?  </p>
+        <p><strong>Inheritence Over Composition -</strong> The class <em><%= @analysis[:inheritence][:child] %></em> inherits from the class <em><%= @analysis[:inheritence][:parent] %></em>. Favour composition over inheritence. Can it be refactored?</p></div>
+
+      <div class="col-md-2"></div>
+    </div>

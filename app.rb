@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require './lib/code_analyzer.rb'
-require './lib/repos_manager'
+require './lib/repo_manager'
 class Recode < Sinatra::Base
 
   enable :sessions
@@ -10,15 +10,12 @@ class Recode < Sinatra::Base
   end
 
   post '/' do
-    Repos.create(params[:username])
+    session[:username] = params[:username]
     redirect to('/repos')
   end
 
-before do
-  @repo_list = Repos.instance
-end
-
   get '/repos' do
+    @repo_list = RepoManager.new(session[:username]).repo_list
     erb(:repos)
   end
 
