@@ -2,8 +2,8 @@ require 'spec_helper'
 
 feature 'repo list' do
   scenario 'displaying repo list' do
-    visit '/index'
-    fill_in('Github username', with: 'andrea6859')
+    visit '/'
+    fill_in('username', with: 'andrea6859')
     click_button 'Submit'
     visit '/repos'
 
