@@ -1,7 +1,6 @@
 require 'curb'
 require 'json'
-class Repos
-
+class RepoManager
 
 attr_reader :repo_names, :user_name
 
@@ -9,22 +8,11 @@ attr_reader :repo_names, :user_name
     @user_name = user_name
   end
 
-  def self.instance
-    @repos
-  end
-
-  def self.create(user_name)
-    @repos = Repos.new(user_name)
-  end
-
   def repo_list
     c = get_API
     c.perform
     json_hash = JSON.parse(c.body_str)
-    @repo_names = json_hash.map do |n|
-      n["name"]
-    end
-
+    return json_hash.map{|n| n["name"]}
   end
 
 private

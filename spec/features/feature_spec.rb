@@ -5,7 +5,7 @@ feature 'repo list' do
   let(:c) {double :c, perform: nil, body_str: '[{"name":"airpostJS"},{"name":"oystercard"},{"name":"battle"}]'}
 
   before do
-    allow_any_instance_of(Repos).to receive(:get_API).and_return(c)
+    allow_any_instance_of(RepoManager).to receive(:get_API).and_return(c)
   end
   scenario 'displaying repo list' do
     visit '/'
