@@ -16,4 +16,17 @@ class Recode < Sinatra::Base
   get '/repos' do
     erb(:repos)
   end
+
+  post 'repos' do
+    # API request to get repo content
+  end
+
+  get '/analysis' do
+    file = File.open('./spec/fixtures/testfile.rb')
+    file = file.read
+    @analysis = Code_analyzer.new(file).analyse
+    erb(:analysis)
+  end
+
+  
 end
