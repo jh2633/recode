@@ -11,7 +11,7 @@ describe PublicPrivateInterface do
   end
 
   it 'identifies lazy poltergeist classes' do
-    expect(analyser.run(@string,@classes)).to eq({:number_public=>5, :number_private=>22, :percentage=>0.23})
+    expect(analyser.run(@string,@classes)).to eq({:number_public=>5, :number_private=>22, :percentage=>22.73})
   end
 
 end
