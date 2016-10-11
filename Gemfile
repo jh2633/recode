@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'sinatra'
 gem 'rake'
-
+gem 'curb'
 
 group :test do
   gem 'rspec'
