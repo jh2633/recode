@@ -63,3 +63,9 @@ class Airport
     landed_planes.length >= capacity
   end
 end
+
+  class Lazy
+    def airport_full?
+      landed_planes.length >= capacity
+    end
+end
