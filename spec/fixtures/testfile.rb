@@ -12,6 +12,8 @@ class Airport
     plane.land
     add_plane_to_airport(plane)
     "The plane has landed safely at the airport."
+    # This is a filler comment
+    # So is this
   end
 
   def takeoff(plane)
