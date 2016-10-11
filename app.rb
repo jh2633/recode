@@ -1,5 +1,5 @@
 require 'sinatra/base'
-# require 'analysis.rb'
+require './lib/analysis.rb'
 
 class Recode < Sinatra::Base
 
@@ -7,7 +7,13 @@ class Recode < Sinatra::Base
 
   get '/index' do
     erb(:index)
-    # redirect to('/repos')
   end
 
+  post '/index' do
+    redirect to('/repos')
+  end
+
+  get '/repos' do
+    erb(:repos)
+  end
 end
