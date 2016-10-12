@@ -1,0 +1,8 @@
+<p><strong> Parameter Overload -</strong> You have <%= @analysis[:ExcessiveMethodParams].length %> methods with excessive arguments in your code: </p>
+<ul>
+  <% @analysis[:ExcessiveMethodParams].each do |name| %>
+    <li>
+      The class <em><%= name[:class] %></em> has the method <em><%= name[:method] %></em>, which takes <%= name[:arity] %> arguments.
+    </li>
+  <% end %>
+</ul>

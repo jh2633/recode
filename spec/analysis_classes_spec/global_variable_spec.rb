@@ -1,4 +1,4 @@
-require './lib/analysis_classes/global_variable'
+require './lib/analysis_classes/global_variable.rb'
 
 describe GlobalVariable do
 

@@ -7,7 +7,7 @@ class Airport
     @landed_planes = []
   end
 
-  def land(plane)
+  def land(plane, plane1, plane2, plane3, plane4)
     pre_landing_checks(plane)
     plane.land
     add_plane_to_airport(plane)
