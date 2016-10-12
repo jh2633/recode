@@ -1,15 +1,13 @@
 class Airport
   $DEFAULT_CAPACITY = 6
 
-  attr_accessor :landed_planes
-
   def initialize(options = {})
     @capacity = options.fetch(:capacity, $DEFAULT_CAPACITY)
     @weather = options.fetch(:weather_system, nil)
     @landed_planes = []
   end
 
-  def land(plane, plane1, plane2, plane3, plane4)
+  def land(plane)
     pre_landing_checks(plane)
     plane.land
     add_plane_to_airport(plane)
@@ -31,7 +29,7 @@ class Airport
 
   def pre_landing_checks(plane)
     "That plane is at another airport." if plane_landed?(plane)
-    'Airport is full, the plane has diverted.' if landed_planes.length >= 6
+    'Airport is full, the plane has diverted.' if airport_full?
     'Poor weather means the plane has to divert.' unless weather_safe?
   end
 
