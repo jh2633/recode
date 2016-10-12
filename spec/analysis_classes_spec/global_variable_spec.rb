@@ -13,4 +13,8 @@ describe GlobalVariable do
     expect(analyser.run(@string,nil)).to eq({number: 1, name: ["$DEFAULT_CAPACITY"]})
   end
 
+  it 'returns nil when no string passed' do
+    expect(analyser.run('',nil)).to eq(nil)
+  end
+
 end

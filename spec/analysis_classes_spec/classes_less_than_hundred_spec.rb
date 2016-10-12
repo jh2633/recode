@@ -13,4 +13,8 @@ describe ClassesLessThanHundred do
     expect(analyser.run(@string,nil)).to eq({:average=>58.0, :percentage=>100.0, :absolute=>0})
   end
 
+  it 'returns nil when no string passed' do
+    expect(analyser.run('',nil)).to eq(nil)
+  end
+
 end
