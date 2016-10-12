@@ -31,7 +31,7 @@ class Airport
 
   def pre_landing_checks(plane)
     "That plane is at another airport." if plane_landed?(plane)
-    'Airport is full, the plane has diverted.' if airport_full?
+    'Airport is full, the plane has diverted.' if landed_planes.length >= 6
     'Poor weather means the plane has to divert.' unless weather_safe?
   end
 
