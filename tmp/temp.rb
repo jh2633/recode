@@ -63,3 +63,12 @@ class Airport
     landed_planes.length >= capacity
   end
 end
+
+class Weather
+  def airport_full?
+    landed_planes.length >= capacity
+  end
+end
+
+class Velodrome < Airport
+end
