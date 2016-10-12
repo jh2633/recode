@@ -1,0 +1,11 @@
+<div class="design-holder">
+  <p><strong data-toggle="tooltip" title="When your classes expose their internal state to the world. ">Object Orgy -</strong> You have <%= @analysis[:ObjectOrgy].length %> attribute accessors in your code: </p>
+  <ul>
+    <% @analysis[:ObjectOrgy].each do |name| %>
+      <li>
+        <%= name[:class] %> has a accessor on <%= name[:accessor] %>.
+      </li>
+    <% end %>
+  </ul>
+  <p><a class="resource-link" href="http://ruby.about.com/od/variables/a/Global-Variables.htm">This blog post explores why we shouldn't use global variables</a>
+</div>

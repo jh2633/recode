@@ -41,7 +41,7 @@ private
   end
 
   def get_files
-    Curl::Easy.new("https://api.github.com/repos/"+ @user_name +"/"+@repo_name+"/contents/") do |curl|
+    Curl::Easy.new("https://api.github.com/repos/"+ @user_name +"/"+@repo_name+"/contents") do |curl|
       curl.headers["User-Agent"] = "myapp-0.0"
     end
   end

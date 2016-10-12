@@ -1,0 +1,11 @@
+<div class="design-holder">
+<p><strong data-toggle="tooltip" title="Methods should not accept more than four parameters."> Parameter Overload -</strong> You have <%= @analysis[:ExcessiveMethodParams].length %> methods with excessive arguments in your code: </p>
+<ul>
+  <% @analysis[:ExcessiveMethodParams].each do |name| %>
+    <li>
+      The class <em><%= name[:class] %></em> has the method <em><%= name[:method] %></em>, which takes <%= name[:arity] %> arguments.
+    </li>
+  <% end %>
+</ul>
+<p><a class="resource-link" href="http://ruby.about.com/od/variables/a/Global-Variables.htm">This blog post explores why we shouldn't use global variables</a>
+</div>
