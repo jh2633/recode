@@ -27,6 +27,7 @@ class Recode < Sinatra::Base
 
   post '/analysis' do
     @analysis = Code_analyzer.new(params[:code]).analyse
+    @code = params[:code]
     erb(:analysis)
   end
 
@@ -44,7 +45,12 @@ class Recode < Sinatra::Base
     @content.file_name = params[:file]
     @decoded_content = Json_parser.extract(@content.content)
     @analysis = Code_analyzer.new(@decoded_content).analyse
+    @code = @decoded_content
     erb(:analysis)
+  end
+
+  get '/recode_logo.png' do
+    :recode_logo
   end
 
 

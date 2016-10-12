@@ -35,7 +35,7 @@ attr_accessor :file_name
 private
 
   def get_API
-    Curl::Easy.new("/") do |curl|
+    Curl::Easy.new("https://api.github.com/users/"+ @user_name +"/repos") do |curl|
       curl.headers["User-Agent"] = "myapp-0.0"
     end
   end

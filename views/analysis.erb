@@ -8,6 +8,8 @@
 <%= erb :"analysis/_inheritence" if @analysis[:Inheritence]%>
 <%= erb :"analysis/_global_variable" if @analysis[:GlobalVariable]%>
 <%= erb :"analysis/_excessive_method_params" if @analysis[:ExcessiveMethodParams]%>
-<%= erb :"analysis/_object_orgy" if @analysis[:ObjectOrgy]%> 
+<%= erb :"analysis/_object_orgy" if @analysis[:ObjectOrgy]%>
       <div class="col-md-2"></div>
     </div>
+<br>
+<p><pre><%=@code%></pre></p>
