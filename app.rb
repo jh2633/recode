@@ -15,7 +15,8 @@ class Recode < Sinatra::Base
   end
 
   get '/repos' do
-    @repo_list = RepoManager.new(session[:username]).repo_list
+    @repo_list = RepoManager.new(session[:username])
+    @repo = @repo_list.repo_list
     erb(:repos)
   end
 
@@ -29,6 +30,14 @@ class Recode < Sinatra::Base
     @analysis = Code_analyzer.new(file).analyse
     erb(:analysis)
   end
+
+  get '/repos/:id' do
+    @file_list = RepoManager.new(session[:username])
+    @file_list.repo_name = params[:id]
+    @file_list = @file_list.file_list
+    erb(:file)
+  end
+
 
 
 end

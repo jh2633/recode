@@ -1,2 +1,7 @@
 <h1>Your Repository List</h1>
-<%= @repo_list%>
+<% @repo.each do |x|%>
+<li>
+  <a href="/repos/<%=x%>" method=get>
+  <%=x%>
+</li>
+<% end%>
