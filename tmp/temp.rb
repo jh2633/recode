@@ -73,7 +73,6 @@ end
 
 class Velodrome < Airport
 end
-
 class Airport
   $DEFAULT_CAPACITY = 6
 
