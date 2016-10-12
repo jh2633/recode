@@ -3,7 +3,7 @@ require './lib/code_analyzer.rb'
 require './lib/repo_manager'
 require './lib/json_parser'
 class Recode < Sinatra::Base
-  set :public_folder, File.join(APP_ROOT, "public")
+  set :public_folder, Proc.new { File.join(root, "public") }
   enable :sessions
 
   get '/' do
