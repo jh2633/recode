@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'feature - analysis' do
 
   before do
-    json = '{
+    @json = '{
       "name": "testfile.rb",
       "path": "testfile.rb",
       "sha": "1f30e4a65619c0b35038a9dba2e2442a864a194c",
@@ -21,16 +21,16 @@ feature 'feature - analysis' do
         "html": "https://github.com/Tim3tang/recodeTest/blob/master/testfile.rb"
       }
     }'
-    allow_any_instance_of(RepoManager).to receive(:repo_list).and_return(["testRepo"])
-    allow_any_instance_of(RepoManager).to receive(:file_list).and_return(["testFile"])
-    allow_any_instance_of(RepoManager).to receive(:content).and_return(json)
 
   end
   scenario 'displaying analysis' do
+    allow(RepoManager).to receive(:make_API_call).and_return('[{"name":"testRepo"}]')
     visit '/'
     fill_in('username', with: 'tim3tang')
     click_button 'Submit'
+    allow(RepoManager).to receive(:make_API_call).and_return('[{"name":"testFile"}]')
     click_link 'testRepo'
+    allow(RepoManager).to receive(:make_API_call).and_return(@json)
     click_link 'testFile'
     expect(page).to have_content("Lazy Poltergeist")
     expect(page).to have_content("Inheritence Over Composition")
