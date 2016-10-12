@@ -1,4 +1,3 @@
-
 class Airport
   $DEFAULT_CAPACITY = 6
 
@@ -73,11 +72,8 @@ end
 
 class Velodrome < Airport
 end
-=======
 class Airport
   $DEFAULT_CAPACITY = 6
-
-  attr_accessor :landed_planes
 
   def initialize(options = {})
     @capacity = options.fetch(:capacity, $DEFAULT_CAPACITY)
@@ -85,7 +81,7 @@ class Airport
     @landed_planes = []
   end
 
-  def land(plane, plane1, plane2, plane3, plane4)
+  def land(plane)
     pre_landing_checks(plane)
     plane.land
     add_plane_to_airport(plane)
@@ -150,4 +146,3 @@ end
 
 class Velodrome < Airport
 end
->>>>>>> 100acc1bb673ab48f4f3bf94209bbbd6d0e80004
