@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8"><h1>Key Statistics</h1></div>
+  <div class="col-md-2"></div>
+</div>
+<div class="col-md-2"></div>
+<div class="col-md-2 center-block">
+  <h3 data-toggle="tooltip" title="Percentage of your methods that are longer than 5 lines.">Mega Methods</h3>
+  <div class="c100 p<%= @analysis[:MethodsLessThanFive][:percentage].ceil %>">
+  <span><%= @analysis[:MethodsLessThanFive][:percentage] %>%</span>
+  <div class="slice">
+    <div class="bar"></div>
+    <div class="fill"></div>
+  </div>
+</div></div>
+<div class="col-md-1"></div>
+<div class="col-md-2 center-block">
+  <h3 data-toggle="tooltip" title="Percentage of your class that are longer than 100 lines.">Waffling Classes</h3>
+  <div class="c100 p<%= @analysis[:ClassesLessThanHundred][:percentage].ceil %>">
+    <span><%= @analysis[:ClassesLessThanHundred][:percentage] %>%</span>
+    <div class="slice">
+      <div class="bar"></div>
+      <div class="fill"></div>
+    </div>
+  </div></div>
+  <div class="col-md-1"></div>
+<div class="col-md-2 center-block">
+  <h3 data-toggle="tooltip" title="Percentage of your methods that are Public vs Private.">Indecent Exposure</h3>
+    <div class="c100 p<%= @analysis[:PublicPrivateInterface][:percentage].ceil %>">
+    <span><%= @analysis[:PublicPrivateInterface][:percentage] %>%</span>
+    <div class="slice">
+      <div class="bar"></div>
+      <div class="fill"></div>
+    </div>
+  </div></div>
+<div class="col-md-2"></div>
+</div>
