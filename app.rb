@@ -29,10 +29,8 @@ class Recode < Sinatra::Base
     erb(:file)
   end
 
-  get '/analysis' do
-    file = File.open('./spec/fixtures/testfile.rb')
-    file = file.read
-    @analysis = Code_analyzer.new(file).analyse
+  post '/analysis' do
+    @analysis = Code_analyzer.new(params[:code]).analyse
     erb(:analysis)
   end
 
