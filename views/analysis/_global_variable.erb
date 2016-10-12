@@ -1,0 +1,8 @@
+<p><strong>Global Variable -</strong> You have <%= @analysis[:GlobalVariable][:number] %> global variables in your code: </p>
+<ul>
+  <% @analysis[:GlobalVariable][:name].each do |name| %>
+    <li>
+      <%= name %>
+    </li>
+  <% end %>
+</ul>

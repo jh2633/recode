@@ -1,47 +1,11 @@
     <div class="row">
-      <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8"><h1>Key Statistics</h1></div>
-        <div class="col-md-2"></div>
-      </div>
-      <div class="col-md-2"></div>
-      <div class="col-md-2 center-block">
-        <h3 data-toggle="tooltip" title="Percentage of your methods that are longer than 5 lines.">Mega Methods</h3>
-        <div class="c100 p<%= @analysis[:MethodsLessThanFive][:percentage].ceil %>">
-        <span><%= @analysis[:MethodsLessThanFive][:percentage] %>%</span>
-        <div class="slice">
-          <div class="bar"></div>
-          <div class="fill"></div>
-        </div>
-      </div></div>
-      <div class="col-md-1"></div>
-      <div class="col-md-2 center-block">
-        <h3 data-toggle="tooltip" title="Percentage of your class that are longer than 100 lines.">Waffling Classes</h3>
-        <div class="c100 p<%= @analysis[:ClassesLessThanHundred][:percentage].ceil %>">
-          <span><%= @analysis[:ClassesLessThanHundred][:percentage] %>%</span>
-          <div class="slice">
-            <div class="bar"></div>
-            <div class="fill"></div>
-          </div>
-        </div></div>
-        <div class="col-md-1"></div>
-      <div class="col-md-2 center-block">
-        <h3 data-toggle="tooltip" title="Percentage of your methods that are Public vs Private.">Indecent Exposure</h3>
-          <div class="c100 p<%= @analysis[:PublicPrivateInterface][:percentage].ceil %>">
-          <span><%= @analysis[:PublicPrivateInterface][:percentage] %>%</span>
-          <div class="slice">
-            <div class="bar"></div>
-            <div class="fill"></div>
-          </div>
-        </div></div>
-      <div class="col-md-2"></div>
-    </div>
+    <%= erb :"analysis/_statistics" %>
     <div class="row">
       <div class="col-md-2"></div>
       <div class="col-md-8">
         <h1>Design Analysis</h1>
-        <p><strong>Lazy Poltergeist -</strong> The class <em><%= @analysis[:LazyPoltergeist][:class] %></em> has been identified as a lazy poltergeist. It has <%= @analysis[:LazyPoltergeist][:number_methods] %> methods and <%= @analysis[:LazyPoltergeist][:number_attributes] %> attributes. Is it needed?  </p>
-        <p><strong>Inheritence Over Composition -</strong> The class <em><%= @analysis[:Inheritence][:child] %></em> inherits from the class <em><%= @analysis[:Inheritence][:parent] %></em>. Favour composition over inheritence. Can it be refactored?</p></div>
-
+<%= erb :"analysis/_lazy_poltergeist" if @analysis[:LazyPoltergeist]%>
+<%= erb :"analysis/_inheritence" if @analysis[:Inheritence]%>
+<%= erb :"analysis/_global_variable" if @analysis[:GlobalVariable]%> 
       <div class="col-md-2"></div>
     </div>

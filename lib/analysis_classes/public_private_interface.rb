@@ -7,7 +7,6 @@ class PublicPrivateInterface
   def run(string, classes)
     get_percentages(classes)
     percentage = @number_public.to_f / @number_private*100
-    puts @number_public, @number_private, percentage
     return {number_public: @number_public, number_private: @number_private, percentage: percentage.round(2)}
   end
 

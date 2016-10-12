@@ -1,8 +1,8 @@
 class Airport
-  DEFAULT_CAPACITY = 6
+  $DEFAULT_CAPACITY = 6
 
   def initialize(options = {})
-    @capacity = options.fetch(:capacity, DEFAULT_CAPACITY)
+    @capacity = options.fetch(:capacity, $DEFAULT_CAPACITY)
     @weather = options.fetch(:weather_system, nil)
     @landed_planes = []
   end
