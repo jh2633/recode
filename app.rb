@@ -3,7 +3,7 @@ require './lib/code_analyzer.rb'
 require './lib/repo_manager'
 require './lib/json_parser'
 class Recode < Sinatra::Base
-
+  set :public_folder, File.join(APP_ROOT, "public")
   enable :sessions
 
   get '/' do
@@ -21,8 +21,12 @@ class Recode < Sinatra::Base
     erb(:repos)
   end
 
-  post 'repos' do
-    # API request to get repo content
+  get '/repos/:id' do
+    @file_list = RepoManager.new(session[:username])
+    @file_list.repo_name = params[:id]
+    session[:repo_name] = params[:id]
+    @file_list = @file_list.file_list
+    erb(:file)
   end
 
   get '/analysis' do
@@ -30,14 +34,6 @@ class Recode < Sinatra::Base
     file = file.read
     @analysis = Code_analyzer.new(file).analyse
     erb(:analysis)
-  end
-
-  get '/repos/:id' do
-    @file_list = RepoManager.new(session[:username])
-    @file_list.repo_name = params[:id]
-    session[:repo_name] = params[:id]
-    @file_list = @file_list.file_list
-    erb(:file)
   end
 
   get '/analysis/:file' do
