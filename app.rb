@@ -1,7 +1,8 @@
 require 'sinatra/base'
 require './lib/code_analyzer.rb'
 require './lib/repo_manager'
-require './lib/json_parser'
+require './lib/response_parser'
+
 class Recode < Sinatra::Base
   set :public_folder, Proc.new { File.join(root, "public") }
   enable :sessions
@@ -16,16 +17,15 @@ class Recode < Sinatra::Base
   end
 
   get '/repos' do
-    @repo_list = RepoManager.new(session[:username])
-    @repo = @repo_list.repo_list
+    response = RepoManager.make_API_call(session[:username])
+    @repo = ResponseParser.parse(response)
     erb(:repos)
   end
 
   get '/repos/:id' do
-    @file_list = RepoManager.new(session[:username])
-    @file_list.repo_name = params[:id]
     session[:repo_name] = params[:id]
-    @file_list = @file_list.file_list
+    response = RepoManager.make_API_call(session[:username], session[:repo_name])
+    @file_list = ResponseParser.parse(response)
     erb(:file)
   end
 
@@ -35,14 +35,10 @@ class Recode < Sinatra::Base
   end
 
   get '/analysis/:file' do
-    @content = RepoManager.new(session[:username])
-    @content.repo_name = session[:repo_name]
-    @content.file_name = params[:file]
-    @decoded_content = Json_parser.extract(@content.content)
-    @analysis = Code_analyzer.new(@decoded_content).analyse
+    content = RepoManager.make_API_call(session[:username], session[:repo_name], params[:file])
+    decoded_content = ResponseParser.extract(content)
+    @analysis = Code_analyzer.new(decoded_content).analyse
     erb(:analysis)
   end
-
-
 
 end
