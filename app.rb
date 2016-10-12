@@ -26,12 +26,7 @@ class Recode < Sinatra::Base
   end
 
   post '/analysis' do
-    session[:code] = params[:code]
-    redirect to('/analysis')
-  end
-
-  get '/analysis' do
-    @analysis = Code_analyzer.new(session[:code]).analyse
+    @analysis = Code_analyzer.new(params[:code]).analyse
     erb(:analysis)
   end
 
