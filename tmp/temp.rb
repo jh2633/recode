@@ -1,15 +1,13 @@
 class Airport
   $DEFAULT_CAPACITY = 6
 
-  attr_accessor :landed_planes
-
   def initialize(options = {})
     @capacity = options.fetch(:capacity, $DEFAULT_CAPACITY)
     @weather = options.fetch(:weather_system, nil)
     @landed_planes = []
   end
 
-  def land(plane, plane1, plane2, plane3, plane4)
+  def land(plane)
     pre_landing_checks(plane)
     plane.land
     add_plane_to_airport(plane)
