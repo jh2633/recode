@@ -1,6 +1,8 @@
 class Airport
   $DEFAULT_CAPACITY = 6
 
+  attr_accessor :landed_planes
+
   def initialize(options = {})
     @capacity = options.fetch(:capacity, $DEFAULT_CAPACITY)
     @weather = options.fetch(:weather_system, nil)
