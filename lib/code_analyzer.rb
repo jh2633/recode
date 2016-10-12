@@ -1,5 +1,5 @@
 Dir["./lib/analysis_classes/*.rb"].each {|file| require file }
-ANALYSIS_CLASSES = [PublicPrivateInterface, MethodsLessThanFive, ClassesLessThanHundred, LazyPoltergeist, Inheritence]
+ANALYSIS_CLASSES = [PublicPrivateInterface, MethodsLessThanFive, ClassesLessThanHundred, LazyPoltergeist, Inheritence, GlobalVariable]
 
 class Code_analyzer
   def initialize(string)
