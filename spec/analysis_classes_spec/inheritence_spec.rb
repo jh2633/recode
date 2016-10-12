@@ -13,4 +13,8 @@ describe Inheritence do
     expect(analyser.run(@string,nil)).to eq({:parent=>"Airport", :child=>"Velodrome"})
   end
 
+  it 'returns nil when no string passed' do
+    expect(analyser.run('',nil)).to eq(nil)
+  end
+
 end

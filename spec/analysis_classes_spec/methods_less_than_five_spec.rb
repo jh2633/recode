@@ -13,4 +13,8 @@ describe MethodsLessThanFive do
     expect(analyser.run(@string,nil)).to eq({:average=>2.0, :percentage=>91.67, :absolute=>1})
   end
 
+  it 'returns nil when no string passed' do
+    expect(analyser.run('',nil)).to eq(nil)
+  end
+
 end
