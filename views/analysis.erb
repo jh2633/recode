@@ -1,14 +1,10 @@
     <div class="row">
-    <%= erb :"analysis/_statistics" %>
-    <div class="row">
+    <%= erb :"analysis/_statistics" if render_statistics?(@analysis)%>
+    <%= "<h2> We're having problems analyzing your code </h2>" unless render_statistics?(@analysis)%>
       <div class="col-md-2"></div>
       <div class="col-md-8">
-        <h1>Design Analysis</h1>
-<%= erb :"analysis/_lazy_poltergeist" if @analysis[:LazyPoltergeist]%>
-<%= erb :"analysis/_inheritence" if @analysis[:Inheritence]%>
-<%= erb :"analysis/_global_variable" if @analysis[:GlobalVariable]%>
-<%= erb :"analysis/_excessive_method_params" if @analysis[:ExcessiveMethodParams]%>
-<%= erb :"analysis/_object_orgy" if @analysis[:ObjectOrgy]%>
-<%= erb :"analysis/_magic_number" if @analysis[:MagicNumber]%>
+        <%= erb :"analysis/_design_analysis" if render_design(@analysis) %>
+        <%= "<h2> Your Code is Clean </h2>" unless render_design(@analysis) %>
+        </div>
       <div class="col-md-2"></div>
     </div>

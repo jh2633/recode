@@ -1,0 +1,7 @@
+<h1>Design Analysis</h1>
+<%= erb :"analysis/_excessive_method_params" unless render_params?(@analysis)%>
+<%= erb :"analysis/_global_variable" if render_global?(@analysis)%>
+<%= erb :"analysis/_inheritence" if render_inheritence?(@analysis)%>
+<%= erb :"analysis/_lazy_poltergeist" if render_poltergeist?(@analysis)%>
+<%= erb :"analysis/_magic_number" if render_magic?(@analysis)%>
+<%= erb :"analysis/_object_orgy" unless render_orgy?(@analysis)%>

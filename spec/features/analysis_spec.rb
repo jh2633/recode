@@ -33,7 +33,7 @@ feature 'feature - analysis' do
     click_link 'testRepo'
     allow_any_instance_of(ClientDouble).to receive(:body_str).and_return(@json)
     click_link 'testFile'
-    expect(page).to have_content("Lazy Poltergeist")
+
     expect(page).to have_content("Inheritence Over Composition")
     expect(page).to have_content("Global Variable")
     expect(page).to have_content("Mega Methods")
@@ -45,11 +45,42 @@ feature 'feature - analysis' do
     visit '/'
     fill_in('code', with: @string)
     click_button 'Submit Your Code'
-    expect(page).to have_content("Lazy Poltergeist")
     expect(page).to have_content("Inheritence Over Composition")
     expect(page).to have_content("Global Variable")
     expect(page).to have_content("Mega Methods")
     expect(page).to have_content("Waffling Classes")
     expect(page).to have_content("Indecent Exposure")
   end
+
+  scenario 'unknown repo list' do
+    allow_any_instance_of(ClientDouble).to receive(:status).and_return('404 Error')
+    visit '/'
+    fill_in('username', with: 'dyvfhjrsvs')
+    click_button 'Submit'
+    expect(page).to have_content("Sorry, we can't find that account. Please try again.")
+  end
+
+  scenario 'error on file list' do
+    allow_any_instance_of(ClientDouble).to receive(:body_str).and_return('[{"name":"testRepo"}]')
+    visit '/'
+    fill_in('username', with: 'tim3tang')
+    click_button 'Submit'
+    allow_any_instance_of(ClientDouble).to receive(:status).and_return('404 Error')
+    click_link 'testRepo'
+    expect(page).to have_content("Sorry something went wrong. Please try again.")
+  end
+
+  scenario 'error on get file' do
+    allow_any_instance_of(ClientDouble).to receive(:body_str).and_return('[{"name":"testRepo"}]')
+    visit '/'
+    fill_in('username', with: 'tim3tang')
+    click_button 'Submit'
+    allow_any_instance_of(ClientDouble).to receive(:body_str).and_return('[{"name":"testFile"}]')
+    click_link 'testRepo'
+    allow_any_instance_of(ClientDouble).to receive(:status).and_return('404 Error')
+    click_link 'testFile'
+    expect(page).to have_content("Sorry something went wrong. Please try again.")
+  end
+
+
 end

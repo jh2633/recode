@@ -6,6 +6,7 @@ describe ClientDouble do
   it 'exists' do
     subject.perform
     expect(subject.body_str).to eq('Default Body String')
+    expect(subject.status).to eq('200 OK')
   end
 
 end

@@ -11,4 +11,8 @@ class ClientDouble
   def body_str
     'Default Body String'
   end
+
+  def status
+    "200 OK"
+  end
 end
