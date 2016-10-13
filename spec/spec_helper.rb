@@ -29,7 +29,7 @@ SimpleCov.formatters = [
 
 SimpleCov.start do
   add_filter "/tmp/"
-  add_filter "/spec/fixtures/"
+  add_filter "/spec/"
 end
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
