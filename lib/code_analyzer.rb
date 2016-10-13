@@ -10,7 +10,12 @@ class Code_analyzer
 
   def analyse
     results = {}
-    ANALYSIS_CLASSES.each{|analysis| results[analysis.name.to_sym]=analysis.new.run(@string, @classes)}
+    ANALYSIS_CLASSES.each do |analysis|
+      begin
+        results[analysis.name.to_sym]=analysis.new.run(@string, @classes)
+      rescue
+      end
+    end
     return results
   end
 
