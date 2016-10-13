@@ -31,6 +31,7 @@ class Recode < Sinatra::Base
 
   post '/analysis' do
     @analysis = Code_analyzer.new(params[:code]).analyse
+    @code = params[:code]
     erb(:analysis)
   end
 
@@ -38,6 +39,7 @@ class Recode < Sinatra::Base
     content = RepoManager.make_API_call(session[:username], session[:repo_name], params[:file])
     decoded_content = ResponseParser.extract(content)
     @analysis = Code_analyzer.new(decoded_content).analyse
+    @code = decoded_content
     erb(:analysis)
   end
 
