@@ -5,7 +5,7 @@ gem 'rake'
 gem 'curb'
 
 group :test do
-  gem 'coveralls'
+  gem 'coveralls', require: false
   gem 'rspec'
   gem 'rspec-sinatra'
   gem 'capybara'
