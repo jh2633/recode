@@ -21,17 +21,30 @@ feature 'feature - analysis' do
         "html": "https://github.com/Tim3tang/recodeTest/blob/master/testfile.rb"
       }
     }'
-
+    file = File.open('./spec/fixtures/testfile.rb')
+    @string = file.read
   end
   scenario 'displaying analysis' do
-    allow(RepoManager).to receive(:make_API_call).and_return('[{"name":"testRepo"}]')
+    allow_any_instance_of(ClientDouble).to receive(:body_str).and_return('[{"name":"testRepo"}]')
     visit '/'
     fill_in('username', with: 'tim3tang')
     click_button 'Submit'
-    allow(RepoManager).to receive(:make_API_call).and_return('[{"name":"testFile"}]')
+    allow_any_instance_of(ClientDouble).to receive(:body_str).and_return('[{"name":"testFile"}]')
     click_link 'testRepo'
-    allow(RepoManager).to receive(:make_API_call).and_return(@json)
+    allow_any_instance_of(ClientDouble).to receive(:body_str).and_return(@json)
     click_link 'testFile'
+    expect(page).to have_content("Lazy Poltergeist")
+    expect(page).to have_content("Inheritence Over Composition")
+    expect(page).to have_content("Global Variable")
+    expect(page).to have_content("Mega Methods")
+    expect(page).to have_content("Waffling Classes")
+    expect(page).to have_content("Indecent Exposure")
+  end
+
+  scenario 'file input analysis' do
+    visit '/'
+    fill_in('code', with: @string)
+    click_button 'Submit Your Code'
     expect(page).to have_content("Lazy Poltergeist")
     expect(page).to have_content("Inheritence Over Composition")
     expect(page).to have_content("Global Variable")

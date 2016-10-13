@@ -3,20 +3,17 @@ require 'repo_manager'
 describe RepoManager do
 
     subject(:repo_manager) {described_class}
-    let(:c) {double :c, perform: nil, body_str: '[{"name":"airpostJS"},{"name":"oystercard"},{"name":"battle"}]'}
-    let(:b) {double :b, perform: nil, body_str: '[{"name":"testFile"}]'}
-    let(:a) {double :a, perform: nil, body_str: 'This is a test file'}
 
     it 'returns a list of repos from user' do
-      allow(repo_manager).to receive(:get_API).and_return(c)
+      allow_any_instance_of(ClientDouble).to receive(:body_str).and_return('[{"name":"airpostJS"},{"name":"oystercard"},{"name":"battle"}]')
       expect(repo_manager.make_API_call('tim3tang')).to eq("[{\"name\":\"airpostJS\"},{\"name\":\"oystercard\"},{\"name\":\"battle\"}]")
     end
     it 'returns a list of file in the repo' do
-      allow(repo_manager).to receive(:get_API).and_return(b)
+      allow_any_instance_of(ClientDouble).to receive(:body_str).and_return('[{"name":"testFile"}]')
       expect(repo_manager.make_API_call('tim3tang','recodeTest')).to eq("[{\"name\":\"testFile\"}]")
     end
     it 'returns body of file content' do
-      allow(repo_manager).to receive(:get_API).and_return(a)
+      allow_any_instance_of(ClientDouble).to receive(:body_str).and_return('This is a test file')
       expect(repo_manager.make_API_call('tim3tang','recodeTest','testFile')).to eq('This is a test file')
     end
 

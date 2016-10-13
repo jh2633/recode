@@ -1,7 +1,7 @@
 require 'curb'
 require 'json'
 class RepoManager
-
+API_CLIENT = Curl::Easy
   def self.make_API_call(user_name, repo_name = nil, file_name = nil)
     path = getPath(user_name, repo_name, file_name)
     c = get_API(path)
@@ -18,8 +18,7 @@ private
   end
 
   def self.get_API(path)
-    Curl::Easy.new(path) do |curl|
-      curl.headers["User-Agent"] = "myapp-0.0"
-    end
+    client = SPEC_CLIENT || API_CLIENT
+    client.new(path){|curl| curl.headers["User-Agent"] = "myapp-0.0" }
   end
 end
