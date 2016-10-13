@@ -1,9 +1,22 @@
-<h1>Welcome to Recode!</h1>
-<form action="/" method="post">
-  <input type="string" name="username">Your Username
-  <input type="submit" value="Submit">
-</form>
-<form action="/analysis" method="post">
-  <textarea name="code">Your Code</textarea>
-  <input type="submit" value="Submit Your Code">
-</form>
+
+<div class="lblock">
+<h1 style="color:#ffffec";>Welcome to Recode!</h1>
+
+<br><br>
+  <form action="/" method="post">
+    <form action="/" method="post">
+   <input style="color: darkblue; background-color: #ffffec; border-radius: 10px" type="string" name="username" placeholder="Github Username"><br><br>
+   <button type="button" class="btn btn-info">Submit</button>
+  </form>
+  <br>
+
+  <div class="textarea">
+  <form action="/analysis" method="post">
+   <textarea style="color: darkblue; background-color: #ffffec; border-radius: 10px"  rows="6" cols="50" name="code" placeholder="Your Code Here..."></textarea><br><br>
+    <button type="button" class="btn btn-info">Submit your code...</button>
+  </form>
+</div>
+
+
+
+</div>

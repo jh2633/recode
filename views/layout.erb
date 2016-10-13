@@ -3,31 +3,41 @@
   <head>
     <link rel="stylesheet" href="/css/circle.css">
     <link rel="stylesheet" href="/css/application.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
     <meta charset="utf-8">
-    <title></title>
+    <link rel="icon" type='image/png' href="https://s4.postimg.org/8pgvlexzh/recode_logo.png"/>
   </head>
+
+
+   <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+     <header class="mdl-layout__header mdl-layout__header--transparent">
+       <div class="mdl-layout__header-row">
+         <!-- Title -->
+
+         <img class="logo" src="https://s4.postimg.org/8pgvlexzh/recode_logo.png"
+         <span class="mdl-layout-title"></span>
+         <!-- Add spacer, to align navigation to the right -->
+         <div class="mdl-layout-spacer"></div>
+         <!-- Navigation -->
+         <nav class="mdl-navigation">
+           <a class="mdl-navigation__link" href=""></a>
+           <a class="mdl-navigation__link" href=""></a>
+           <a class="mdl-navigation__link" href=""></a>
+           <a class="mdl-navigation__link" href=""></a>
+         </nav>
+       </div>
+     </header>
+
+
+
   <body>
-    <div class="container-fluid">
-        <nav class="navbar navbar-dark bg-primary">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="/" style="color: black;">Recode</a>
-            </div>
-              <ul class="nav navbar-nav navbar-right">
-              </ul>
-            </div>
-          </div>
-        </nav>
-    </div>
+
     <%= yield %>
-    <script>
-      $(document).ready(function(){
-          $('[data-toggle="tooltip"]').tooltip();
-      });
-    </script>
   </body>
 </html>
