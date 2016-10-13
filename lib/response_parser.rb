@@ -10,7 +10,8 @@ class ResponseParser
   end
 
   def self.parse(string)
-    self.convert(string).map{|n| n["name"]}
+    json = self.convert(string)
+    json.map{|n| {name:n["name"], description: n["description"]}}
   end
 
 private

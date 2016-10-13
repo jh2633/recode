@@ -1,7 +1,7 @@
 <h1>Your File List</h1>
 <% @file_list.each do |x|%>
 <li>
-  <a href="/analysis/<%=x%>" method=get>
-  <%=x%>
+  <a href="/analysis/<%=x[:name]%>" method=get>
+  <%=x[:name]%>
 </li>
 <% end%>
