@@ -24,6 +24,8 @@ require 'capybara'
 require './spec/fixtures/testfile.rb'
 require 'capybara/rspec'
 require 'rspec'
+require 'coveralls'
+Coveralls.wear!
 
 
 Capybara.app = Recode

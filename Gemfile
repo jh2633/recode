@@ -5,6 +5,7 @@ gem 'rake'
 gem 'curb'
 
 group :test do
+  gem 'coveralls'
   gem 'rspec'
   gem 'rspec-sinatra'
   gem 'capybara'

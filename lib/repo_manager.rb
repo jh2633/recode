@@ -3,7 +3,7 @@ require 'json'
 class RepoManager
 
   def self.make_API_call(user_name, repo_name = nil, file_name = nil)
-    puts path = getPath(user_name, repo_name, file_name)
+    path = getPath(user_name, repo_name, file_name)
     c = get_API(path)
     c.perform
     return c.body_str
