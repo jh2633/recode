@@ -14,16 +14,16 @@ module Sinatra
       render_magic?(analysis)
     end
     def render_poltergeist?(analysis)
-      analysis[:LazyPoltergeist][:class]
+      analysis[:LazyPoltergeist]
     end
     def render_inheritence?(analysis)
-      analysis[:Inheritence][:parent]
+      analysis[:Inheritence]
     end
     def render_global?(analysis)
-      analysis[:GlobalVariable][:number] > 0
+      analysis[:GlobalVariable]
     end
     def render_params?(analysis)
-      analysis[:ExcessiveMethodParams].empty?
+      analysis[:ExcessiveMethodParams]
     end
     def render_orgy?(analysis)
       analysis[:ObjectOrgy].empty?

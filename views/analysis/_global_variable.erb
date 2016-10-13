@@ -1,5 +1,5 @@
 <div class="design-holder">
-  <p><strong data-toggle="tooltip" title="Global Variables denoted by $variable are usually a poor design choice.">Global Variable -</strong> You have <%= @analysis[:GlobalVariable][:number] %> global variables in your code: </p>
+  <p><strong data-toggle="tooltip" title="Global Variables denoted by $variable are usually a poor design choice.">Global Variable -</strong> You have <%= @analysis[:GlobalVariable][:number] %> global variable(s) in your code: </p>
   <ul>
     <% @analysis[:GlobalVariable][:name].each do |name| %>
       <li>

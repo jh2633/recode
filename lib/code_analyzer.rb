@@ -14,8 +14,10 @@ class Code_analyzer
       begin
         results[analysis.name.to_sym]=analysis.new.run(@string, @classes)
       rescue
+        next
       end
     end
+    puts results
     return results
   end
 
