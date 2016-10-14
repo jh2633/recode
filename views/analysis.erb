@@ -1,9 +1,13 @@
 <head>
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.deep_purple-pink.min.css">
   <link rel="stylesheet" href="/css/styles.css">
   <style>
+.demo-card-wide {
+  background: url('https://www.ox.ac.uk/sites/files/oxford/styles/ow_large_feature/public/field/field_image_main/Mathematics%20and%20Statistics.jpg?itok=b0oi3q05') center / cover;
+}
   #view-source {
     position: fixed;
     display: block;
@@ -15,15 +19,13 @@
   }
   </style>
 </head>
-
-
     <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
       <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
     <main class="mdl-layout__content">
       <div class="mdl-layout__tab-panel is-active" id="overview">
         <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-                <div class="mdl-card mdl-cell mdl-cell--12-col">
+                <div class="mdl-card demo-card-wide mdl-cell mdl-cell--12-col">
                   <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
         <%= erb :"analysis/_statistics" if render_statistics?(@analysis)%>
         <%= "<h2> We're having problems analyzing your code </h2>" unless render_statistics?(@analysis)%>
