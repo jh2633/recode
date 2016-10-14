@@ -17,7 +17,6 @@ class Code_analyzer
         next
       end
     end
-    puts results
     return results
   end
 
