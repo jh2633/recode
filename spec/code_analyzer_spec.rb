@@ -16,8 +16,9 @@ describe '#analyse' do
     @code_analyzer.analyse
   end
 
-  it 'rescues on fail' do
-    expect{Code_analyzer.new("").analyse}.not_to raise_error
+  it 'rescues on error' do
+    allow(example_instance).to receive(:run) { raise "boom" }
+    expect{Code_analyzer.new("0/0").analyse}.not_to raise_error
   end
 
 end
