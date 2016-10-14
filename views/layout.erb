@@ -10,34 +10,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
     <meta charset="utf-8">
     <link rel="icon" type='image/png' href="https://s4.postimg.org/8pgvlexzh/recode_logo.png"/>
   </head>
-
-
-   <div class="demo-layout-transparent mdl-layout mdl-js-layout">
-     <header class="mdl-layout__header mdl-layout__header--transparent">
-       <div class="mdl-layout__header-row">
-         <!-- Title -->
-
-         <img class="logo" src="https://s4.postimg.org/8pgvlexzh/recode_logo.png"
-         <span class="mdl-layout-title"></span>
-         <!-- Add spacer, to align navigation to the right -->
-         <div class="mdl-layout-spacer"></div>
-         <!-- Navigation -->
-         <nav class="mdl-navigation">
-           <a class="mdl-navigation__link" href=""></a>
-           <a class="mdl-navigation__link" href=""></a>
-           <a class="mdl-navigation__link" href=""></a>
-           <a class="mdl-navigation__link" href=""></a>
-         </nav>
-       </div>
-     </header>
+ <body>
 
 
 
-  <body>
-
+    <% if flash[:alert] %>
+      <div class="alert alert-danger" role="alert"><%=flash[:alert]%></div>
+    <% end %>
     <%= yield %>
+
+    <script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+    </script>
   </body>
 </html>

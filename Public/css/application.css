@@ -7,6 +7,7 @@ body {margin-left: 100px;}
   border: 1px solid grey;
   border-radius: 7px;
 }
+
 .demo-layout-transparent {
   background: url('https://fortunedotcom.files.wordpress.com/2015/09/gettyimages-1852881881.jpg?w=840&h=485&crop=1') center / cover;
 }
@@ -35,6 +36,21 @@ body {margin-left: 100px;}
       padding: 100px 50px 75px 100px;
     }
 
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();
-});
+
+
+
+.demo-list-three {
+  width: 650px;
+}
+
+.demo-card-wide.mdl-card {
+  width: 100%;
+}
+.demo-card-wide > .mdl-card__title {
+  color: black;
+  height: 200px;
+  background: url('http://cdn1.cloudpro.co.uk/sites/cloudprod7/files/storage%20files.jpg') center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}

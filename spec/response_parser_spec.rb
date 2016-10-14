@@ -31,7 +31,7 @@ describe 'response parser' do
 
   it 'creates a json object from string' do
     decoded = ResponseParser.parse(@string)
-    expect(decoded).to eq(["testFile"])
+    expect(decoded).to eq([{:name=>"testFile", :description=>nil}])
   end
 
 end

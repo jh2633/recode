@@ -1,7 +1,22 @@
-<h1>Your File List</h1>
-<% @file_list.each do |x|%>
-<li>
-  <a href="/analysis/<%=x%>" method=get>
-  <%=x%>
-</li>
-<% end%>
+<div class="col-md-2"></div>
+<div class="col-md-8">
+  <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Files</h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+    <ul class="demo-list-three mdl-list">
+      <% @file_list.each do |x|%>
+      <li class="mdl-list__item mdl-list__item--three-line">
+        <span class="mdl-list__item-primary-content">
+          <i class="material-icons mdl-list__item-avatar">folder shared</i>
+          <span><a href="/analysis/<%=x[:name]%>" method=get>
+          <%=x[:name]%></a></span>
+        </span>
+      </li>
+    <% end%>
+    </ul>
+  </div>
+</div>
+</div>
+<div class="col-md-2"></div>
