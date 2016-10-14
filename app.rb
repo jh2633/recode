@@ -52,15 +52,16 @@ class Recode < Sinatra::Base
     else
       decoded_content = ResponseParser.extract(response[:body])
       @analysis = Code_analyzer.new(decoded_content).analyse
+      @code = decoded_content
       erb(:analysis)
     end
   end
 
   post '/analysis' do
     @analysis = Code_analyzer.new(params[:code]).analyse
+    @code = params[:code]
     erb(:analysis)
   end
-
 
 
 end

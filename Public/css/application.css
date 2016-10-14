@@ -1,12 +1,5 @@
 body {margin-left: 100px;}
 
-.design-holder {
-  margin-bottom: 10px;
-  padding: 5px;
-  background-color: rgba(192, 192, 192, 0.3);
-  border: 1px solid grey;
-  border-radius: 7px;
-}
 
 .demo-layout-transparent {
   background: url('https://fortunedotcom.files.wordpress.com/2015/09/gettyimages-1852881881.jpg?w=840&h=485&crop=1') center / cover;

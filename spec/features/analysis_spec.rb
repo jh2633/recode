@@ -44,7 +44,7 @@ feature 'feature - analysis' do
   scenario 'file input analysis' do
     visit '/'
     fill_in('code', with: @string)
-    click_button 'Submit Your Code'
+    click_button 'Submit your code...'
     expect(page).to have_content("Inheritence Over Composition")
     expect(page).to have_content("Global Variable")
     expect(page).to have_content("Mega Methods")
