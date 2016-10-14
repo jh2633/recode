@@ -8,6 +8,37 @@ body {margin-left: 100px;}
   border-radius: 7px;
 }
 
+.demo-layout-transparent {
+  background: url('https://fortunedotcom.files.wordpress.com/2015/09/gettyimages-1852881881.jpg?w=840&h=485&crop=1') center / cover;
+}
+.demo-layout-transparent .mdl-layout__header,
+.demo-layout-transparent .mdl-layout__drawer-button {
+  /* This background is dark, so we set text to white. Use 87% black instead if
+     your background is light. */
+  color: white;
+}
+
+.logo {
+    display: inline-block;
+    vertical-align: top;
+    width: 200px;
+    height: 100px;
+    margin-left: -90px;
+    margin-top: 50px;
+  }
+
+.textarea {
+  border-radius: 10px
+}
+
+
+    .lblock {
+      padding: 100px 50px 75px 100px;
+    }
+
+
+
+
 .demo-list-three {
   width: 650px;
 }

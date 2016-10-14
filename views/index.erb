@@ -1,9 +1,34 @@
-<h1>Welcome to Recode!</h1>
-<form action="/" method="post">
-  <input type="string" name="username">Your Username
-  <input type="submit" value="Submit">
-</form>
-<form action="/analysis" method="post">
-  <textarea name="code">Your Code</textarea>
-  <input type="submit" value="Submit Your Code">
-</form>
+<div class="demo-layout-transparent mdl-layout mdl-js-layout">
+  <header class="mdl-layout__header mdl-layout__header--transparent">
+    <div class="mdl-layout__header-row">
+
+
+      <img class="logo" src="https://s4.postimg.org/8pgvlexzh/recode_logo.png"/>
+      <span class="mdl-layout-title"></span>
+
+      <div class="mdl-layout-spacer"></div>
+
+    </div>
+  </header>
+
+<div class="lblock">
+<h1 style="color:#ffffec">Welcome to Recode!</h1>
+
+<br><br>
+
+    <form action="/" method="post">
+   <input style="color: darkblue; background-color: #ffffec; border-radius: 10px" type="string" name="username" placeholder="Github Username"><br><br>
+   <button type="submit" class="btn btn-info">Submit</button>
+  </form>
+  <br>
+
+  <div class="textarea">
+  <form action="/analysis" method="post">
+   <textarea style="color: darkblue; background-color: #ffffec; border-radius: 10px"  rows="6" cols="50" name="code" placeholder="Your Code Here..."></textarea><br><br>
+    <button type="submit" class="btn btn-info">Submit your code...</button>
+  </form>
+</div>
+
+</div>
+
+</div>
