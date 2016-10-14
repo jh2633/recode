@@ -1,0 +1,22 @@
+<h1>Design Analysis</h1>
+<div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+<%= erb :"analysis/_lazy_poltergeist" if render_poltergeist?(@analysis)%>
+</div>
+
+<div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+<%= erb :"analysis/_object_orgy" unless render_orgy?(@analysis)%>
+</div>
+
+<div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+<%= erb :"analysis/_inheritence" if render_inheritence?(@analysis)%>
+</div>
+
+<div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+<%= erb :"analysis/_excessive_method_params" if render_params?(@analysis)%>
+</div>
+<div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+<%= erb :"analysis/_global_variable" if render_global?(@analysis)%>
+</div>
+<div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+<%= erb :"analysis/_magic_number" if render_magic?(@analysis)%>
+</div>

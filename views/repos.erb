@@ -1,7 +1,25 @@
-<h1>Your Repository List</h1>
-<% @repo.each do |x|%>
-<li>
-  <a href="/repos/<%=x%>" method=get>
-  <%=x%></a>
-</li>
-<% end%>
+<div class="col-md-2"></div>
+<div class="col-md-8">
+  <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Repositories</h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+    <ul class="demo-list-three mdl-list">
+      <% @repo.each do |x|%>
+      <li class="mdl-list__item mdl-list__item--three-line">
+        <span class="mdl-list__item-primary-content">
+          <i class="material-icons mdl-list__item-avatar">folder shared</i>
+          <span><a href="/repos/<%=x[:name]%>" method=get>
+          <%=x[:name]%></a></span>
+          <span class="mdl-list__item-text-body">
+            <%=x[:description]%>
+          </span>
+        </span>
+      </li>
+    <% end%>
+    </ul>
+  </div>
+</div>
+</div>
+<div class="col-md-2"></div>

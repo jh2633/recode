@@ -16,9 +16,8 @@
   </style>
 </head>
     <div class="row">
-    <%= erb :"analysis/_statistics" %>
-    <div class="row">
-      <div class="col-md-2"></div>
+    <%= erb :"analysis/_statistics" if render_statistics?(@analysis)%>
+    <%= "<h2> We're having problems analyzing your code </h2>" unless render_statistics?(@analysis)%>
 
 
     <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
@@ -30,25 +29,9 @@
     <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
               <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
-                <h4 class="mdl-cell mdl-cell--12-col">Design Analysis</h4>
-                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                  <%= erb :"analysis/_lazy_poltergeist" if @analysis[:LazyPoltergeist]%>
-                </div>
-                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                  <%= erb :"analysis/_inheritence" if @analysis[:Inheritence]%>
-                </div>
-                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                  <%= erb :"analysis/_excessive_method_params" if @analysis[:ExcessiveMethodParams]%>
-                </div>
-                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                  <%= erb :"analysis/_global_variable" if @analysis[:GlobalVariable]%>
-                </div>
-                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                  <%= erb :"analysis/_object_orgy" if @analysis[:ObjectOrgy]%>
-                </div>
-                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                  <%= erb :"analysis/_magic_number" if @analysis[:MagicNumber]%>
-                </div>
+                <%= erb :"analysis/_design_analysis" if render_design(@analysis) %>
+                <%= "<h2> Your Code is Clean </h2>" unless render_design(@analysis) %>
+
               </div>
 
             </div>
