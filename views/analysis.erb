@@ -15,9 +15,6 @@
   }
   </style>
 </head>
-    <div class="row">
-    <%= erb :"analysis/_statistics" if render_statistics?(@analysis)%>
-    <%= "<h2> We're having problems analyzing your code </h2>" unless render_statistics?(@analysis)%>
 
 
     <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
@@ -25,7 +22,14 @@
 
     <main class="mdl-layout__content">
       <div class="mdl-layout__tab-panel is-active" id="overview">
-
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                <div class="mdl-card mdl-cell mdl-cell--12-col">
+                  <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+        <%= erb :"analysis/_statistics" if render_statistics?(@analysis)%>
+        <%= "<h2> We're having problems analyzing your code </h2>" unless render_statistics?(@analysis)%>
+      </div>
+    </div>
+  </section>
     <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
               <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
@@ -33,18 +37,16 @@
                 <%= "<h2> Your Code is Clean </h2>" unless render_design(@analysis) %>
 
               </div>
-
             </div>
-
-
           </section>
 
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
                   <div class="mdl-card mdl-cell mdl-cell--12-col">
                     <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
-                      <h4 class="mdl-cell mdl-cell--12-col">Code</h4>
+                      <h1 class="mdl-cell mdl-cell--12-col">Code</h1>
                         <div>
-                        <pre><%=@code%></pre>
+                          <br>
+                        <pre style="margin-left: 100px"><%=@code%></pre>
                         </div>
                     </div>
 
